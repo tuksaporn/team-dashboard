@@ -1,97 +1,33 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Grade 2 Reading & Writing Practice Test</title>
+<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Thailand i4.0 Factory Assessment Advisor</title>
 <style>
-body{font-family:Arial,sans-serif;background:#f5f7fb;margin:0;color:#1f2937}
-.wrap{max-width:760px;margin:auto;padding:18px}
-.card{background:#fff;border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 4px 18px #00000012}
-h1{font-size:28px;margin:0 0 8px;color:#174ea6} h2{font-size:20px;color:#166534}
-label{font-weight:700;display:block;margin:12px 0 6px}
-input[type=text]{width:100%;box-sizing:border-box;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font-size:16px}
-.q{padding:13px 0;border-bottom:1px solid #e5e7eb}.q:last-child{border:0}
-.opts label{font-weight:400}.opts input{margin-right:8px}
-button{width:100%;padding:15px;border:0;border-radius:12px;background:#1769e0;color:#fff;font-size:18px;font-weight:700}
-#result{display:none;text-align:center;background:#eef6ff}.score{font-size:42px;font-weight:800;color:#1769e0}
-small{color:#64748b}.error{color:#b91c1c;font-weight:700}
-</style>
-</head>
-<body>
-<div class="wrap">
-<div class="card">
-<h1>📚 Grade 2 Reading & Writing Practice</h1>
-<p><b>Term 1 – Final Test Practice</b></p>
-<p>30 questions • 30 marks</p>
-<label>Student Name</label><input id="name" type="text" placeholder="Type your name">
-</div>
-
-<div class="card"><h2>Part 1: My Free Time — Questions 1–10</h2>
-<p><small>For 1–6, rearrange the words. For 7–10, choose the correct answer.</small></p>
-<div id="part1"></div></div>
-
-<div class="card"><h2>Part 2: Living Spaces — Questions 11–20</h2>
-<div id="part2"></div></div>
-
-<div class="card"><h2>Part 3: Getting Dressed — Questions 21–30</h2>
-<div id="part3"></div></div>
-
-<div class="card"><button onclick="submitQuiz()">Submit & See My Score</button></div>
-<div class="card" id="result"><div id="resultText"></div><button onclick="location.reload()" style="margin-top:14px">Try Again</button></div>
-</div>
-
+:root{--navy:#123047;--teal:#167d8d;--bg:#f4f7fa;--line:#dce5eb}*{box-sizing:border-box}body{margin:0;font-family:Inter,"Noto Sans Thai",Arial,sans-serif;background:var(--bg);color:#172b3a}.wrap{max-width:1050px;margin:auto;padding:24px}.hero{background:linear-gradient(130deg,#102c40,#167d8d);color:white;padding:30px;border-radius:22px}.eyebrow{font-size:12px;letter-spacing:1.4px;opacity:.8}.hero h1{font-size:clamp(28px,4vw,42px);margin:10px 0}.hero p{line-height:1.65;max-width:800px}.pill{display:inline-block;padding:6px 10px;border-radius:99px;background:#e6f4f5;color:#17616d;font-size:12px;margin:4px 4px 0 0}.layout{display:grid;grid-template-columns:260px 1fr;gap:18px;margin-top:18px}.panel,.chatbox{background:white;border:1px solid var(--line);border-radius:18px;padding:20px}.panel h3{margin-top:0}.panel li{margin:12px 0;line-height:1.4}.chatbox{display:flex;flex-direction:column;min-height:560px}.chathead{display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}.chathead h2{margin:0;font-size:19px}.status{font-size:12px;color:#7a5b00;background:#fff3cd;padding:6px 9px;border-radius:99px}.messages{flex:1;overflow:auto;max-height:470px;padding:12px 2px}.msg{padding:12px 14px;border-radius:14px;line-height:1.65;white-space:pre-wrap;margin:10px 0;max-width:92%;overflow-wrap:anywhere}.bot{background:#edf5f7;border:1px solid #e1edf0}.user{background:#123047;color:white;margin-left:auto}.composer{display:flex;gap:8px;border-top:1px solid var(--line);padding-top:14px}.composer input{min-width:0;flex:1;padding:13px;border:1px solid #bdcbd4;border-radius:12px;font-size:16px}.btn{border:0;border-radius:12px;padding:12px 16px;background:var(--teal);color:white;font-weight:700;cursor:pointer}.btn:disabled{opacity:.5}.hint{font-size:12px;color:#6c7b86;line-height:1.6;margin:10px 0 0}.quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.quick button{font-size:13px;padding:8px 10px;background:#e9f1f4;color:#234453}.record{font-size:13px;color:#526774;line-height:1.7}.record strong{color:#17394b}.footer{text-align:center;color:#788995;font-size:12px;padding:22px}@media(max-width:760px){.wrap{padding:12px}.layout{grid-template-columns:1fr}.panel{order:2}.chatbox{min-height:500px}.composer .btn{padding:10px}}
+</style></head><body><main class="wrap">
+<section class="hero"><div class="eyebrow">AI-ASSISTED FACTORY ASSESSMENT & TRANSFORMATION ADVISOR</div><h1>Thailand i4.0 Factory Assessment Advisor</h1><p>ผู้ช่วยเก็บข้อมูลโรงงานแบบเป็นขั้นตอน ช่วยทำความเข้าใจ Automation, Digital System และหลักฐานการใช้งานจริง ก่อนจัดข้อมูลเพื่อการประเมินและวางแผนยกระดับ</p><span class="pill">Adaptive interview prototype</span><span class="pill">Evidence-aware</span><span class="pill">No guessed Band</span></section>
+<div class="layout"><aside class="panel"><h3>Assessment workflow</h3><ol><li>Factory Digital Profile</li><li>Production & Support Processes</li><li>Automation & Human Intervention</li><li>Evidence & Data Systems</li><li>6 Thailand i4.0 Dimensions</li><li>Gap diagnosis & roadmap</li></ol><hr><h3>ข้อมูลที่เก็บในรอบนี้</h3><div id="profile" class="record">ยังไม่มีข้อมูล โปรดเริ่มตอบคำถามในแชต</div><p class="hint">สถานะ: Prototype สำหรับทดสอบบทสนทนา ไม่ใช่ผลประเมินอย่างเป็นทางการ</p><button class="btn" style="width:100%;margin-top:8px" onclick="resetChat()">เริ่มการสัมภาษณ์ใหม่</button></aside>
+<section class="chatbox"><div class="chathead"><h2>Factory assessment chat</h2><span class="status">Prototype · No official Band</span></div><div id="messages" class="messages" aria-live="polite"></div><div id="quick" class="quick"></div><form id="form" class="composer"><input id="entry" autocomplete="off" placeholder="พิมพ์คำตอบของคุณที่นี่…" aria-label="พิมพ์คำตอบ"><button id="send" class="btn" type="submit">ส่ง</button></form><p class="hint">พิมพ์ข้อความแล้วกด Enter หรือกด “ส่ง” ได้เลย หากระบบถามไม่ตรงประเด็น คุณสามารถอธิบายเพิ่มเติมเป็นภาษาของคุณเอง</p></section></div><div class="footer">Thailand i4.0 Factory Assessment Advisor · Prototype build</div></main>
 <script>
-const qs=[
-{n:1,type:'text',p:'play / I / with / my / friends',a:['i play with my friends']},
-{n:2,type:'text',p:'does / What / he / do / after school',a:['what does he do after school']},
-{n:3,type:'text',p:'the / read / library / books / at / We',a:['we read books at the library']},
-{n:4,type:'text',p:'likes / Jane / drawing / pictures',a:['jane likes drawing pictures']},
-{n:5,type:'text',p:'on / football / Sundays / They / play',a:['they play football on sundays']},
-{n:6,type:'text',p:'your / What / favourite / is / activity',a:['what is your favourite activity']},
-{n:7,type:'mc',p:'What do you do in your free time?',o:['I play games.','It is Monday.','It is in the kitchen.'],a:0},
-{n:8,type:'mc',p:'How many days a week does Tom swim?',o:['Blue.','Three days.','In the bedroom.'],a:1},
-{n:9,type:'mc',p:'What is Anna’s favourite activity?',o:['Reading books.','At school.','Two hours.'],a:0},
-{n:10,type:'mc',p:'When does Ben ride his bike?',o:['On Saturdays.','In the bathroom.','A jacket.'],a:0},
-{n:11,type:'mc',p:'Bedroom — what do we do here?',o:['We cook food here.','We sleep here.','We wash our bodies here.'],a:1},
-{n:12,type:'mc',p:'Kitchen — what do we do here?',o:['We cook food here.','We sleep here.','We watch television here.'],a:0},
-{n:13,type:'mc',p:'Bathroom — what do we do here?',o:['We cook food here.','We wash our bodies here.','We enjoy the view here.'],a:1},
-{n:14,type:'mc',p:'Living room — what do we do here?',o:['We watch television here.','We cook food here.','We sleep here.'],a:0},
-{n:15,type:'mc',p:'Balcony — what can we do here?',o:['Enjoy the view.','Cook food.','Wash our bodies.'],a:0},
-{n:16,type:'mc',p:'Is there a bed in the bedroom?',o:['Yes, there is.','Yes, there are.','No, there aren’t.'],a:0},
-{n:17,type:'mc',p:'Is there a cooker in the kitchen?',o:['No, there isn’t.','Yes, there is.','Yes, there are.'],a:1},
-{n:18,type:'mc',p:'Are there chairs in the dining room?',o:['Yes, there are.','No, there isn’t.','Yes, there is.'],a:0},
-{n:19,type:'mc',p:'Are there books in the bathroom?',o:['Yes, there is.','No, there aren’t.','No, there isn’t.'],a:1},
-{n:20,type:'mc',p:'Which room do you use to watch TV?',o:['Living room.','Bathroom.','Balcony.'],a:0},
-{n:21,type:'text',p:'You wear this on your head.',a:['hat']},
-{n:22,type:'text',p:'You wear these on your feet.',a:['shoes']},
-{n:23,type:'text',p:'You wear this when it is cold.',a:['coat','jacket']},
-{n:24,type:'text',p:'You wear these on your legs.',a:['trousers','pants']},
-{n:25,type:'text',p:'You wear this over a shirt.',a:['jacket']},
-{n:26,type:'mc',p:'Which one is a piece of clothing?',o:['T-shirt','Kitchen','Balcony'],a:0},
-{n:27,type:'mc',p:'What do you wear on your feet?',o:['Shoes','Hat','Scarf'],a:0},
-{n:28,type:'mc',p:'What do you wear when it is cold?',o:['Coat','Shorts','Swimsuit'],a:0},
-{n:29,type:'mc',p:'Which word is plural?',o:['Shirt','Shoes','Jacket'],a:1},
-{n:30,type:'mc',p:'Choose the correct sentence.',o:['I am wearing a blue shirt.','I wearing blue shirt.','I is wearing a blue shirt.'],a:0}
+const steps=[
+{key:"company",q:"สวัสดีค่ะ เราจะเริ่มจาก Factory Digital Profile ก่อน และจะยังไม่สรุป Band จนกว่าจะตรวจข้อมูลและเกณฑ์ที่ยืนยันแล้ว\n\nชื่อบริษัทหรือชื่อโรงงานที่ต้องการประเมินคืออะไร?",placeholder:"ชื่อบริษัท/โรงงาน"},
+{key:"product",q:"โรงงานนี้ผลิตสินค้าประเภทใดเป็นหลัก และมี Product Family หลักอะไรบ้าง?",placeholder:"เช่น อาหารแช่แข็ง ชิ้นส่วนยานยนต์"},
+{key:"site",q:"มีโรงงานหรือ Site ที่ต้องการประเมินกี่แห่ง และการประเมินครั้งนี้ครอบคลุม Site ใด?",placeholder:"จำนวนและชื่อ Site"},
+{key:"lines",q:"ใน Site นี้มีสายการผลิตหลักกี่สาย และต้องการเริ่มจากสายใดก่อน?",placeholder:"จำนวนสายและชื่อสาย"},
+{key:"process",q:"สำหรับสายการผลิตที่เลือก ช่วยเรียงขั้นตอนหลักตั้งแต่วัตถุดิบเข้าไปจนถึงสินค้าสำเร็จรูปได้ไหม? หากยังไม่ทราบทั้งหมด บอกเฉพาะขั้นตอนหลักได้ค่ะ",placeholder:"เช่น ชั่ง ผสม ขึ้นรูป ตรวจสอบ บรรจุ"},
+{key:"automation",q:"ในขั้นตอนเหล่านั้น มีจุดใดใช้เครื่องจักรหรือ Automation บ้าง? ระบุขั้นตอนและสิ่งที่เครื่องทำได้จริงได้เลยค่ะ",placeholder:"ขั้นตอนและงานที่เครื่องทำ"},
+{key:"human",q:"ขอเจาะลึกจุดที่บอกว่ามี Automation: ระหว่างการทำงานปกติ พนักงานยังต้องป้อนชิ้นงาน กดเริ่ม/หยุด ปรับตั้ง หรือควบคุมเครื่องเป็นระยะหรือไม่?",placeholder:"อธิบายบทบาทพนักงาน"},
+{key:"data",q:"ข้อมูลการผลิต เช่น จำนวนผลิต ของเสีย เวลาหยุดเครื่อง หรือพารามิเตอร์ ถูกบันทึกอย่างไรในปัจจุบัน: กระดาษ/Excel, ระบบดิจิทัลแยกส่วน หรือเชื่อมโยงกันระหว่างระบบ?",placeholder:"วิธีเก็บและเชื่อมโยงข้อมูล"},
+{key:"evidence",q:"มีหลักฐานประกอบที่สามารถตรวจสอบได้หรือไม่ เช่น ภาพหน้าจอ Dashboard, รายงาน, บันทึกจากระบบ หรือเอกสารวิธีปฏิบัติงาน? ไม่ต้องส่งข้อมูลลับในช่องนี้ เพียงระบุประเภทหลักฐานที่มีค่ะ",placeholder:"ประเภทหลักฐานที่มี"},
+{key:"goal",q:"สุดท้าย ปัญหาธุรกิจที่อยากแก้เป็นอันดับแรกคืออะไร เช่น Downtime, Defect, Lead Time, Productivity, Inventory Accuracy หรือ Changeover Time?",placeholder:"ปัญหาและ KPI ที่อยากปรับปรุง"}
 ];
-function norm(s){return s.toLowerCase().trim().replace(/[.!?,]/g,'').replace(/\s+/g,' ')}
-function render(list,id){document.getElementById(id).innerHTML=list.map(q=>{
- if(q.type==='text') return '<div class="q"><b>'+q.n+'.</b> '+q.p+'<input id="q'+q.n+'" type="text" placeholder="Type your answer"></div>';
- return '<div class="q"><b>'+q.n+'.</b> '+q.p+'<div class="opts">'+q.o.map((x,i)=>'<label><input type="radio" name="q'+q.n+'" value="'+i+'">'+String.fromCharCode(97+i)+') '+x+'</label>').join('')+'</div></div>';
-}).join('')}
-render(qs.slice(0,10),'part1');render(qs.slice(10,20),'part2');render(qs.slice(20),'part3');
-function submitQuiz(){
- const name=document.getElementById('name').value.trim();
- if(!name){alert('Please enter the student name.');document.getElementById('name').focus();return}
- let score=0;
- qs.forEach(q=>{
-  if(q.type==='text'){const v=norm(document.getElementById('q'+q.n).value);if(q.a.map(norm).includes(v))score++}
-  else {const el=document.querySelector('input[name="q'+q.n+'"]:checked');if(el&&Number(el.value)===q.a)score++}
- });
- const pct=Math.round(score/30*100);
- document.getElementById('resultText').innerHTML='<h2>🎉 Test Complete!</h2><p><b>'+name+'</b></p><div class="score">'+score+' / 30</div><p>'+pct+'%</p><p>'+ (score===30?'Excellent! 🌟':score>=24?'Great job! 👍':score>=18?'Good work! 😊':'Keep practising! 💪') +'</p>';
- document.getElementById('result').style.display='block';
- window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
-}
-</script>
-</body></html>
+let idx=0;let answers={};let awaitingDetail=false;
+const $=id=>document.getElementById(id);
+function addMsg(text,who){const d=document.createElement("div");d.className="msg "+(who==="user"?"user":"bot");d.textContent=text;$("messages").appendChild(d);$("messages").scrollTop=$("messages").scrollHeight}
+function ask(){if(idx<steps.length){addMsg(steps[idx].q,"bot");$("entry").placeholder=steps[idx].placeholder||"พิมพ์คำตอบของคุณ…";renderQuick()}else finish()}
+function renderQuick(){const q=$("quick");q.innerHTML="";let choices=[];if(steps[idx]?.key==="human")choices=["ต้องควบคุม/กดสั่งงาน","ควบคุมบางช่วง","ทำงานเองเป็นส่วนใหญ่","ยังไม่แน่ใจ"];if(steps[idx]?.key==="data")choices=["กระดาษหรือ Excel","ระบบดิจิทัลแยกส่วน","เชื่อมโยงข้อมูลระหว่างระบบ","ยังไม่มีการเก็บข้อมูลสม่ำเสมอ"];if(steps[idx]?.key==="evidence")choices=["มี Dashboard/Report","มีบันทึกระบบหรือเอกสาร","มีเพียงคำบอกเล่า","ยังไม่มีหลักฐาน"];choices.forEach(t=>{const b=document.createElement("button");b.className="btn";b.type="button";b.textContent=t;b.onclick=()=>sendAnswer(t);q.appendChild(b)})}
+function sendAnswer(value){const v=value.trim();if(!v)return;addMsg(v,"user");$("entry").value="";$("quick").innerHTML="";const key=steps[idx].key;answers[key]=v;idx++;updateProfile();if(key==="automation"&&/ai|ปัญญาประดิษฐ์|smart factory|สมาร์ตแฟคทอรี/i.test(v)){addMsg("ขอแยกคำกล่าวอ้างออกจากการจัดระดับก่อนนะคะ การมี AI หรือ Smart Factory เพียงอย่างเดียวยังไม่ยืนยันระดับความพร้อม เราจะต้องทราบงานที่ใช้ ข้อมูลที่ป้อน การตัดสินใจของคน และหลักฐานการใช้งานจริงด้วย","bot")}if(key==="human"&&/ไม่แน่ใจ|ไม่ทราบ/.test(v)){addMsg("ไม่เป็นไรค่ะ เราจะบันทึกจุดนี้เป็นข้อมูลที่ยังต้องยืนยัน และจะไม่สมมติว่าเป็น Automatic","bot")}if(idx<steps.length){ask()}else finish()}
+function updateProfile(){const labels={company:"Company",product:"Product Family",site:"Site",lines:"Production Line",process:"Process",automation:"Automation",human:"Human Intervention",data:"Data System",evidence:"Evidence",goal:"Business KPI"};$("profile").innerHTML=Object.keys(answers).map(k=>"<div><strong>"+labels[k]+":</strong> "+escapeHtml(answers[k])+"</div>").join("")}
+function escapeHtml(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function finish(){addMsg("ขอบคุณค่ะ เก็บข้อมูลสัมภาษณ์เบื้องต้นครบแล้ว\n\nสถานะผลประเมิน: ยังสรุปผลอย่างเป็นทางการไม่ได้\nเหตุผล: Prototype นี้ยังไม่ได้เชื่อม Assessment Rule Engine และเกณฑ์/Threshold ที่ยืนยันอย่างเป็นทางการ จึงจะไม่คำนวณหรือเดา Thailand Band\n\nข้อมูลที่ควรทำต่อ: ตรวจสอบรายละเอียด Process, แนบ/ตรวจ Evidence, ยืนยันกฎของทั้ง 6 Dimensions และให้ผู้ประเมินมนุษย์ตรวจทานก่อนออกผล","bot");$("quick").innerHTML="";$("entry").disabled=true;$("send").disabled=true;const b=document.createElement("button");b.className="btn";b.textContent="เริ่มใหม่";b.onclick=resetChat;$("quick").appendChild(b)}
+function resetChat(){idx=0;answers={};$("messages").innerHTML="";$("profile").textContent="ยังไม่มีข้อมูล โปรดเริ่มตอบคำถามในแชต";$("entry").disabled=false;$("send").disabled=false;$("entry").value="";ask()}
+$("form").addEventListener("submit",e=>{e.preventDefault();sendAnswer($("entry").value)});ask();
+</script></body></html>
