@@ -27,7 +27,52 @@ function renderQuick(){const q=$("quick");q.innerHTML="";let choices=[];if(steps
 function sendAnswer(value){const v=value.trim();if(!v)return;addMsg(v,"user");$("entry").value="";$("quick").innerHTML="";const key=steps[idx].key;answers[key]=v;idx++;updateProfile();if(key==="automation"&&/ai|ปัญญาประดิษฐ์|smart factory|สมาร์ตแฟคทอรี/i.test(v)){addMsg("ขอแยกคำกล่าวอ้างออกจากการจัดระดับก่อนนะคะ การมี AI หรือ Smart Factory เพียงอย่างเดียวยังไม่ยืนยันระดับความพร้อม เราจะต้องทราบงานที่ใช้ ข้อมูลที่ป้อน การตัดสินใจของคน และหลักฐานการใช้งานจริงด้วย","bot")}if(key==="human"&&/ไม่แน่ใจ|ไม่ทราบ/.test(v)){addMsg("ไม่เป็นไรค่ะ เราจะบันทึกจุดนี้เป็นข้อมูลที่ยังต้องยืนยัน และจะไม่สมมติว่าเป็น Automatic","bot")}if(idx<steps.length){ask()}else finish()}
 function updateProfile(){const labels={company:"Company",product:"Product Family",site:"Site",lines:"Production Line",process:"Process",automation:"Automation",human:"Human Intervention",data:"Data System",evidence:"Evidence",goal:"Business KPI"};$("profile").innerHTML=Object.keys(answers).map(k=>"<div><strong>"+labels[k]+":</strong> "+escapeHtml(answers[k])+"</div>").join("")}
 function escapeHtml(s){return s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
-function finish(){addMsg("ขอบคุณค่ะ เก็บข้อมูลสัมภาษณ์เบื้องต้นครบแล้ว\n\nสถานะผลประเมิน: ยังสรุปผลอย่างเป็นทางการไม่ได้\nเหตุผล: Prototype นี้ยังไม่ได้เชื่อม Assessment Rule Engine และเกณฑ์/Threshold ที่ยืนยันอย่างเป็นทางการ จึงจะไม่คำนวณหรือเดา Thailand Band\n\nข้อมูลที่ควรทำต่อ: ตรวจสอบรายละเอียด Process, แนบ/ตรวจ Evidence, ยืนยันกฎของทั้ง 6 Dimensions และให้ผู้ประเมินมนุษย์ตรวจทานก่อนออกผล","bot");$("quick").innerHTML="";$("entry").disabled=true;$("send").disabled=true;const b=document.createElement("button");b.className="btn";b.textContent="เริ่มใหม่";b.onclick=resetChat;$("quick").appendChild(b)}
+function finish(){
+ const a=answers;
+ const txt=(k)=>a[k]||"ยังไม่ได้ระบุ";
+ const low=(k)=>txt(k).toLowerCase();
+ const has=(k,re)=>re.test(low(k));
+ const evidenceText=low("evidence");
+ let evStatus="Self-Declared";
+ if(/ไม่มีหลักฐาน|ยังไม่มีหลักฐาน|ยังไม่มีการเก็บ/.test(evidenceText)) evStatus="No Evidence";
+ else if(/dashboard|report|รายงาน|บันทึกระบบ|เอกสาร|ภาพหน้าจอ/.test(evidenceText)) evStatus="Self-Declared (มีการระบุว่ามีหลักฐาน แต่ยังไม่ได้ตรวจสอบ)";
+ const findings=[];
+ if(a.automation) findings.push("Automation: "+a.automation);
+ if(a.human) findings.push("Human intervention: "+a.human);
+ if(a.data) findings.push("Data system: "+a.data);
+ const gaps=[];
+ if(!a.process||/ยังไม่ทราบ|ไม่แน่ใจ|ไม่ครบ/.test(low("process"))) gaps.push("ทำแผนผังกระบวนการผลิตตั้งแต่วัตถุดิบถึงสินค้าสำเร็จรูปให้ครบ และแยกกระบวนการสนับสนุนออกจากการผลิต");
+ if(!a.automation||/ไม่แน่ใจ|ไม่ทราบ/.test(low("automation"))) gaps.push("ระบุเครื่องจักร/ระบบอัตโนมัติรายขั้นตอน พร้อมหน้าที่จริงและขอบเขตการทำงาน");
+ if(!a.human||/ไม่แน่ใจ|ไม่ทราบ/.test(low("human"))) gaps.push("ยืนยันบทบาทพนักงานในแต่ละขั้นตอน เช่น ป้อนงาน ตั้งค่า เริ่ม/หยุด แก้ปัญหา และตรวจคุณภาพ");
+ if(!a.data||/ไม่แน่ใจ|ไม่ทราบ/.test(low("data"))) gaps.push("ทำบัญชีข้อมูลการผลิต แหล่งข้อมูล ความถี่ ผู้รับผิดชอบ และการเชื่อมโยงระหว่างระบบ");
+ if(evStatus==="No Evidence") gaps.push("กำหนดหลักฐานขั้นต่ำที่ตรวจสอบได้สำหรับแต่ละข้อ เช่น system log, dashboard, report, SOP หรือบันทึกการผลิต");
+ else gaps.push("ตรวจหลักฐานที่ระบุว่ามีอยู่จริง โดยเชื่อมโยงหลักฐานกับขั้นตอน กระบวนการ และข้อกำหนดการประเมิน");
+ if(!a.goal) gaps.push("ยืนยันปัญหาธุรกิจและ KPI ตั้งต้น พร้อมช่วงเวลาข้อมูลและเจ้าของ KPI");
+ const strengths=[];
+ if(a.automation&&!/ไม่มี|ยังไม่มี|ไม่ใช้/.test(low("automation"))) strengths.push("เริ่มระบุจุดที่ใช้เครื่องจักรหรือ Automation ได้แล้ว ควรตรวจสอบขอบเขตการทำงานจริง");
+ if(a.data&&/เชื่อมโยง|dashboard|ระบบดิจิทัล|mes|erp|scada|plc/.test(low("data"))) strengths.push("คำตอบชี้ว่ามีการใช้ระบบหรือข้อมูลดิจิทัลบางรูปแบบ ควรตรวจความครอบคลุมและการเชื่อมโยงจากหลักฐาน");
+ if(a.goal) strengths.push("มีการระบุปัญหาธุรกิจ/KPI เป้าหมายเพื่อใช้จัดลำดับการปรับปรุง");
+ if(!strengths.length) strengths.push("มีข้อมูลตั้งต้นจากการสัมภาษณ์แล้ว แต่ยังไม่มีหลักฐานเพียงพอที่จะยืนยันจุดแข็งด้านดิจิทัล");
+ const roadmap=[
+ "Safe (0–3 เดือน): ยืนยัน Process Map, เก็บค่า Baseline ของ KPI ที่เลือก, ทำรายการข้อมูล/หลักฐาน และตรวจความถูกต้องกับเจ้าของกระบวนการ",
+ "Fast (3–12 เดือน): เลือก use case ที่เชื่อมกับปัญหาและ KPI ที่ระบุ ทดลองปรับปรุงในขอบเขตเล็ก วัดผลก่อน–หลัง และเก็บหลักฐานผลลัพธ์",
+ "Leapfrog (1–3 ปี): พิจารณาการเชื่อมโยงข้อมูลข้ามเครื่องจักร/ระบบหรือการวิเคราะห์ขั้นสูง เฉพาะเมื่อยืนยันความพร้อมของข้อมูล กระบวนการ คน และผลตอบแทนแล้ว"
+ ];
+ const missing=["ยังไม่มีการจับคู่คำตอบกับเกณฑ์ทางการครบทั้ง 6 Dimensions / 17 Sub-dimensions","ยังไม่มีการตรวจหลักฐานโดยผู้ประเมิน","ยังไม่ได้โหลด Rule Engine และกฎการตัดสินที่ยืนยันอย่างเป็นทางการ"];
+ let report="สรุปการสัมภาษณ์เบื้องต้น (Pre-assessment)\n\n";
+ report+="1) Factory Digital Profile\n• Company: "+txt("company")+"\n• Product Family: "+txt("product")+"\n• Site: "+txt("site")+"\n• Production Line: "+txt("lines")+"\n• Process: "+txt("process")+"\n";
+ report+="\n2) สัญญาณจากคำตอบ (ยังไม่ใช่คะแนนหรือระดับ)\n"+(findings.length?findings.map(x=>"• "+x).join("\n"):"• ข้อมูลด้าน Automation, คน และระบบข้อมูลยังไม่ครบ") +"\n";
+ report+="\n3) จุดที่ควรตรวจสอบต่อ\n"+strengths.map(x=>"• "+x).join("\n")+"\n";
+ report+="\n4) Evidence status: "+evStatus+"\nสถานะนี้อิงจากคำตอบในแชตเท่านั้น ไม่ถือว่า Verified จนกว่าจะมีผู้ประเมินตรวจหลักฐานจริง\n";
+ report+="\n5) ช่องว่าง/ข้อมูลที่ต้องเติม\n"+gaps.map((x,i)=>(i+1)+". "+x).join("\n")+"\n";
+ report+="\n6) แนวทาง Transformation เบื้องต้น (ไม่ใช่การอนุมัติโครงการ)\n"+roadmap.map(x=>"• "+x).join("\n")+"\n";
+ report+="\n7) ข้อจำกัดของผลนี้\n"+missing.map(x=>"• "+x).join("\n")+"\n\nThailand i4.0 Band: ยังสรุปผลอย่างเป็นทางการไม่ได้ เนื่องจากยังไม่มีเกณฑ์การตัดสินที่ยืนยันได้ และข้อมูล/หลักฐานยังต้องตรวจสอบ ห้ามตีความสรุปนี้เป็น Band หรือคะแนนทางการ";
+ addMsg("จบคำถามตั้งต้น 10 ข้อแล้วค่ะ ตอนนี้ระบบจะสร้างสรุปเบื้องต้นจากคำตอบ ไม่ใช่หยุดเงียบ ๆ โดยไม่เดา Band หรือคะแนนทางการ","bot");
+ addMsg(report,"bot");
+ $("quick").innerHTML="";
+ $("entry").disabled=true;$("send").disabled=true;
+ const b=document.createElement("button");b.className="btn";b.textContent="เริ่มใหม่";b.onclick=resetChat;$("quick").appendChild(b);
+}
 function resetChat(){idx=0;answers={};$("messages").innerHTML="";$("profile").textContent="ยังไม่มีข้อมูล โปรดเริ่มตอบคำถามในแชต";$("entry").disabled=false;$("send").disabled=false;$("entry").value="";ask()}
 $("form").addEventListener("submit",e=>{e.preventDefault();sendAnswer($("entry").value)});ask();
 </script></body></html>
